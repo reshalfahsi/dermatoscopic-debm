@@ -173,7 +173,7 @@ Here’s the plan:
 1. Define the negative energy function $-E\_\theta(x)$ as a CNN.
 2. Train via **score matching**: minimizing the energy of real images while maximizing energy of synthetic samples (contrastive divergence).
 3. Generate new images by Langevin sampling.
-4. Store synthetic images in replay buffer.
+4. Store synthetic images in a replay buffer.
 
 Please go to the [notebook](https://colab.research.google.com/github/reshalfahsi/dermatoscopic-debm/blob/main/Generating_Dermatoscopic_Images_With_the_Deep_Energy_Based_Model.ipynb) for the working implementation.
 
