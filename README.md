@@ -53,7 +53,7 @@ Since $\log Z(\theta)$ depends on $\theta$, we need its gradient when optimizing
 
 ### Gradient of the Log-Likelihood
 
-We differentiate the expected log-likelihood with respect to $\theta$ (i.e., the expected score function $s(x; \theta) := \nabla_{\theta} \log q_{\theta}(x)$):
+We differentiate the expected log-likelihood with respect to $\theta$ (i.e., the expected score function $s(x; \theta) := \nabla\_\theta \log q\_\theta(x)$ ):
 
 
 $$
