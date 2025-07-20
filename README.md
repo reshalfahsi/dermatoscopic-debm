@@ -1,7 +1,7 @@
 # **Generating Dermatoscopic Images With the Deep Energy-Based Model**
 
 <div align="center">
-    <a href="https://colab.research.google.com/github/reshalfahsi/dermatoscopic-debm/blob/main/Generating\_Dermatoscopic\_Images\_With\_the\_Deep\_Energy\_Based\_Model.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="colab"></a>
+    <a href="https://colab.research.google.com/github/reshalfahsi/dermatoscopic-debm/blob/main/Generating_Dermatoscopic_Images_With_the_Deep_Energy_Based_Model.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="colab"></a>
     <br />
 </div>
 
@@ -53,7 +53,7 @@ Since $\log Z(\theta)$ depends on $\theta$, we need its gradient when optimizing
 
 ### Gradient of the Log-Likelihood
 
-We differentiate the expected log-likelihood with respect to $\theta$ (i.e., the expected score function $s(x; \theta) := \nabla\_\theta \log q\_\theta(x)$):
+We differentiate the expected log-likelihood with respect to $\theta$ (i.e., the expected score function $s(x; \theta) \coloneq \nabla\_\theta \log q\_\theta(x)$):
 
 
 $$
@@ -175,17 +175,17 @@ Here’s the plan:
 3. Generate new images by Langevin sampling.
 4. Store synthetic images in replay buffer.
 
-Please go to the [notebook](https://colab.research.google.com/github/reshalfahsi/dermatoscopic-debm/blob/main/Generating\_Dermatoscopic\_Images\_With\_the\_Deep\_Energy\_Based\_Model.ipynb) for the working implementation.
+Please go to the [notebook](https://colab.research.google.com/github/reshalfahsi/dermatoscopic-debm/blob/main/Generating_Dermatoscopic_Images_With_the_Deep_Energy_Based_Model.ipynb) for the working implementation.
 
 ## Result
 
 ### Loss Curve
 
-<p align="center"> <img src="https://github.com/reshalfahsi/dermatoscopic-debm/blob/main/assets/loss\_plot.png" alt="loss\_plot" > <br /> Loss curves of the Deep Energy-Based Model. Fortunately, the losses do not diverge since the model is prone to such a phenomenon. Once the occurrence hits, we can only pray to God, fine-tune the last best weight before divergence, and hope for the best. </p>
+<p align="center"> <img src="https://github.com/reshalfahsi/dermatoscopic-debm/blob/main/assets/loss_plot.png" alt="loss_plot" > <br /> Loss curves of the Deep Energy-Based Model. Fortunately, the losses do not diverge since the model is prone to such a phenomenon. Once the occurrence hits, we can only pray to God, fine-tune the last best weight before divergence, and hope for the best. </p>
 
 ### Metric Curve
 
-<p align="center"> <img src="https://github.com/reshalfahsi/dermatoscopic-debm/blob/main/assets/metrics\_plot.png" alt="metrics\_plot" > <br /> Metrics curves shows the expected energy of real and fake samples during training. </p>
+<p align="center"> <img src="https://github.com/reshalfahsi/dermatoscopic-debm/blob/main/assets/metrics_plot.png" alt="metrics_plot" > <br /> Metrics curves shows the expected energy of real and fake samples during training. </p>
 
 
 ### Qualitative Result
@@ -194,68 +194,68 @@ Here are the ten examples of generated dermatoscopic images:
 
 #### Sample 1
 
-<p align="center"> <img src="https://github.com/reshalfahsi/dermatoscopic-debm/blob/main/assets/image\_per\_step\_0.png" alt="image\_per\_step\_0" > <br /> Transition from a random noise to a generated dermatoscopic image  </p>
+<p align="center"> <img src="https://github.com/reshalfahsi/dermatoscopic-debm/blob/main/assets/image_per_step_0.png" alt="image_per_step_0" > <br /> Transition from a random noise to a generated dermatoscopic image  </p>
 
-<p align="center"> <img src="https://github.com/reshalfahsi/dermatoscopic-debm/blob/main/assets/image\_per\_step\_animation\_0.gif" width=400 alt="image\_per\_step\_animation\_0" > <br /> Animated transition from a random noise to a generated dermatoscopic image  </p>
+<p align="center"> <img src="https://github.com/reshalfahsi/dermatoscopic-debm/blob/main/assets/image_per_step_animation_0.gif" width=400 alt="image_per_step_animation_0" > <br /> Animated transition from a random noise to a generated dermatoscopic image  </p>
 
 #### Sample 2
 
-<p align="center"> <img src="https://github.com/reshalfahsi/dermatoscopic-debm/blob/main/assets/image\_per\_step\_1.png" alt="image\_per\_step\_1" > <br /> Transition from a random noise to a generated dermatoscopic image  </p>
+<p align="center"> <img src="https://github.com/reshalfahsi/dermatoscopic-debm/blob/main/assets/image_per_step_1.png" alt="image_per_step_1" > <br /> Transition from a random noise to a generated dermatoscopic image  </p>
 
-<p align="center"> <img src="https://github.com/reshalfahsi/dermatoscopic-debm/blob/main/assets/image\_per\_step\_animation\_1.gif" width=400 alt="image\_per\_step\_animation\_1" > <br /> Animated transition from a random noise to a generated dermatoscopic image  </p>
+<p align="center"> <img src="https://github.com/reshalfahsi/dermatoscopic-debm/blob/main/assets/image_per_step_animation_1.gif" width=400 alt="image_per_step_animation_1" > <br /> Animated transition from a random noise to a generated dermatoscopic image  </p>
 
 #### Sample 3
 
-<p align="center"> <img src="https://github.com/reshalfahsi/dermatoscopic-debm/blob/main/assets/image\_per\_step\_2.png" alt="image\_per\_step\_2" > <br /> Transition from a random noise to a generated dermatoscopic image  </p>
+<p align="center"> <img src="https://github.com/reshalfahsi/dermatoscopic-debm/blob/main/assets/image_per_step_2.png" alt="image_per_step_2" > <br /> Transition from a random noise to a generated dermatoscopic image  </p>
 
-<p align="center"> <img src="https://github.com/reshalfahsi/dermatoscopic-debm/blob/main/assets/image\_per\_step\_animation\_2.gif" width=400 alt="image\_per\_step\_animation\_2" > <br /> Animated transition from a random noise to a generated dermatoscopic image  </p>
+<p align="center"> <img src="https://github.com/reshalfahsi/dermatoscopic-debm/blob/main/assets/image_per_step_animation_2.gif" width=400 alt="image_per_step_animation_2" > <br /> Animated transition from a random noise to a generated dermatoscopic image  </p>
 
 #### Sample 4
 
-<p align="center"> <img src="https://github.com/reshalfahsi/dermatoscopic-debm/blob/main/assets/image\_per\_step\_3.png" alt="image\_per\_step\_3" > <br /> Transition from a random noise to a generated dermatoscopic image  </p>
+<p align="center"> <img src="https://github.com/reshalfahsi/dermatoscopic-debm/blob/main/assets/image_per_step_3.png" alt="image_per_step_3" > <br /> Transition from a random noise to a generated dermatoscopic image  </p>
 
-<p align="center"> <img src="https://github.com/reshalfahsi/dermatoscopic-debm/blob/main/assets/image\_per\_step\_animation\_3.gif" width=400 alt="image\_per\_step\_animation\_3" > <br /> Animated transition from a random noise to a generated dermatoscopic image  </p>
+<p align="center"> <img src="https://github.com/reshalfahsi/dermatoscopic-debm/blob/main/assets/image_per_step_animation_3.gif" width=400 alt="image_per_step_animation_3" > <br /> Animated transition from a random noise to a generated dermatoscopic image  </p>
 
 #### Sample 5
 
-<p align="center"> <img src="https://github.com/reshalfahsi/dermatoscopic-debm/blob/main/assets/image\_per\_step\_4.png" alt="image\_per\_step\_4" > <br /> Transition from a random noise to a generated dermatoscopic image  </p>
+<p align="center"> <img src="https://github.com/reshalfahsi/dermatoscopic-debm/blob/main/assets/image_per_step_4.png" alt="image_per_step_4" > <br /> Transition from a random noise to a generated dermatoscopic image  </p>
 
-<p align="center"> <img src="https://github.com/reshalfahsi/dermatoscopic-debm/blob/main/assets/image\_per\_step\_animation\_4.gif" width=400 alt="image\_per\_step\_animation\_4" > <br /> Animated transition from a random noise to a generated dermatoscopic image  </p>
+<p align="center"> <img src="https://github.com/reshalfahsi/dermatoscopic-debm/blob/main/assets/image_per_step_animation_4.gif" width=400 alt="image_per_step_animation_4" > <br /> Animated transition from a random noise to a generated dermatoscopic image  </p>
 
 #### Sample 6
 
-<p align="center"> <img src="https://github.com/reshalfahsi/dermatoscopic-debm/blob/main/assets/image\_per\_step\_5.png" alt="image\_per\_step\_5" > <br /> Transition from a random noise to a generated dermatoscopic image  </p>
+<p align="center"> <img src="https://github.com/reshalfahsi/dermatoscopic-debm/blob/main/assets/image_per_step_5.png" alt="image_per_step_5" > <br /> Transition from a random noise to a generated dermatoscopic image  </p>
 
-<p align="center"> <img src="https://github.com/reshalfahsi/dermatoscopic-debm/blob/main/assets/image\_per\_step\_animation\_5.gif" width=400 alt="image\_per\_step\_animation\_5" > <br /> Animated transition from a random noise to a generated dermatoscopic image  </p>
+<p align="center"> <img src="https://github.com/reshalfahsi/dermatoscopic-debm/blob/main/assets/image_per_step_animation_5.gif" width=400 alt="image_per_step_animation_5" > <br /> Animated transition from a random noise to a generated dermatoscopic image  </p>
 
 #### Sample 7
 
-<p align="center"> <img src="https://github.com/reshalfahsi/dermatoscopic-debm/blob/main/assets/image\_per\_step\_6.png" alt="image\_per\_step\_6" > <br /> Transition from a random noise to a generated dermatoscopic image  </p>
+<p align="center"> <img src="https://github.com/reshalfahsi/dermatoscopic-debm/blob/main/assets/image_per_step_6.png" alt="image_per_step_6" > <br /> Transition from a random noise to a generated dermatoscopic image  </p>
 
-<p align="center"> <img src="https://github.com/reshalfahsi/dermatoscopic-debm/blob/main/assets/image\_per\_step\_animation\_6.gif" width=400  alt="image\_per\_step\_animation\_6" > <br /> Animated transition from a random noise to a generated dermatoscopic image  </p>
+<p align="center"> <img src="https://github.com/reshalfahsi/dermatoscopic-debm/blob/main/assets/image_per_step_animation_6.gif" width=400  alt="image_per_step_animation_6" > <br /> Animated transition from a random noise to a generated dermatoscopic image  </p>
 
 #### Sample 8
 
-<p align="center"> <img src="https://github.com/reshalfahsi/dermatoscopic-debm/blob/main/assets/image\_per\_step\_7.png" alt="image\_per\_step\_7" > <br /> Transition from a random noise to a generated dermatoscopic image  </p>
+<p align="center"> <img src="https://github.com/reshalfahsi/dermatoscopic-debm/blob/main/assets/image_per_step_7.png" alt="image_per_step_7" > <br /> Transition from a random noise to a generated dermatoscopic image  </p>
 
-<p align="center"> <img src="https://github.com/reshalfahsi/dermatoscopic-debm/blob/main/assets/image\_per\_step\_animation\_7.gif" width=400 alt="image\_per\_step\_animation\_7" > <br /> Animated transition from a random noise to a generated dermatoscopic image  </p>
+<p align="center"> <img src="https://github.com/reshalfahsi/dermatoscopic-debm/blob/main/assets/image_per_step_animation_7.gif" width=400 alt="image_per_step_animation_7" > <br /> Animated transition from a random noise to a generated dermatoscopic image  </p>
 
 #### Sample 9
 
-<p align="center"> <img src="https://github.com/reshalfahsi/dermatoscopic-debm/blob/main/assets/image\_per\_step\_8.png" alt="image\_per\_step\_8" > <br /> Transition from a random noise to a generated dermatoscopic image  </p>
+<p align="center"> <img src="https://github.com/reshalfahsi/dermatoscopic-debm/blob/main/assets/image_per_step_8.png" alt="image_per_step_8" > <br /> Transition from a random noise to a generated dermatoscopic image  </p>
 
-<p align="center"> <img src="https://github.com/reshalfahsi/dermatoscopic-debm/blob/main/assets/image\_per\_step\_animation\_8.gif" width=400 alt="image\_per\_step\_animation\_8" > <br /> Animated transition from a random noise to a generated dermatoscopic image  </p>
+<p align="center"> <img src="https://github.com/reshalfahsi/dermatoscopic-debm/blob/main/assets/image_per_step_animation_8.gif" width=400 alt="image_per_step_animation_8" > <br /> Animated transition from a random noise to a generated dermatoscopic image  </p>
 
 #### Sample 10
 
-<p align="center"> <img src="https://github.com/reshalfahsi/dermatoscopic-debm/blob/main/assets/image\_per\_step\_9.png" alt="image\_per\_step\_9" > <br /> Transition from a random noise to a generated dermatoscopic image  </p>
+<p align="center"> <img src="https://github.com/reshalfahsi/dermatoscopic-debm/blob/main/assets/image_per_step_9.png" alt="image_per_step_9" > <br /> Transition from a random noise to a generated dermatoscopic image  </p>
 
-<p align="center"> <img src="https://github.com/reshalfahsi/dermatoscopic-debm/blob/main/assets/image\_per\_step\_animation\_9.gif" width=400 alt="image\_per\_step\_animation\_9" > <br /> Animated transition from a random noise to a generated dermatoscopic image  </p>
+<p align="center"> <img src="https://github.com/reshalfahsi/dermatoscopic-debm/blob/main/assets/image_per_step_animation_9.gif" width=400 alt="image_per_step_animation_9" > <br /> Animated transition from a random noise to a generated dermatoscopic image  </p>
 
 
 
 ## **References**
 
 1. [Y. Du and I. Mordatch, "Implicit generation and modeling with energy based models," *Advances in Neural Information Processing Systems*, vol. 32, (2019).](https://arxiv.org/pdf/1903.08689)
-2. [Tutorial 8: Deep Energy-Based Generative Models](https://uvadlc-notebooks.readthedocs.io/en/latest/tutorial\_notebooks/tutorial8/Deep\_Energy\_Models.html)
+2. [Tutorial 8: Deep Energy-Based Generative Models](https://uvadlc-notebooks.readthedocs.io/en/latest/tutorial_notebooks/tutorial8/Deep_Energy_Models.html)
 3. [J. Yang, R. Shi, D. Wei, Z. Liu, L. Zhao, B. Ke, H. Pfister, and B. Ni, "MedMNIST v2 - A large-scale lightweight benchmark for 2D and 3D biomedical image classification," *Scientific Data*, vol. 10, no. 1, p. 41, (2023).](https://www.nature.com/articles/s41597-022-01721-8)
