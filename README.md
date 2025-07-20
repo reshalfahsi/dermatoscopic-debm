@@ -28,7 +28,7 @@ The goal of MLE is to find parameters $\theta$ that maximize the log-likelihood 
 
 
 $$
-\mathcal{L}(\theta) = \mathbb{E}_{x \sim p_{\text{data}}} \left\[\log q_\theta(x) \right]
+\mathcal{L}(\theta) = \mathbb{E}_{x \sim p_{\text{data}}} \[\log q_\theta(x) ]
 $$
 
 
@@ -44,7 +44,7 @@ So, the expected log-likelihood becomes:
 
 
 $$
-\mathcal{L}(\theta) = \mathbb{E}_{x \sim p_{\text{data}}} \left\[-E_\theta(x) \right] - \log Z(\theta)
+\mathcal{L}(\theta) = \mathbb{E}_{x \sim p_{\text{data}}} \[-E_\theta(x) ] - \log Z(\theta)
 $$
 
 
@@ -57,7 +57,7 @@ We differentiate the expected log-likelihood with respect to $\theta$ (i.e., the
 
 
 $$
-\nabla_\theta \mathcal{L}(\theta) = \mathbb{E}_{x \sim p_{\text{data}}} \left\[\nabla_\theta \log q_\theta(x) \right]
+\nabla_\theta \mathcal{L}(\theta) = \mathbb{E}_{x \sim p_{\text{data}}} \[\nabla_\theta \log q_\theta(x) ]
 $$
 
 
@@ -65,7 +65,7 @@ Remember the previous part:
 
 
 $$
-\nabla_\theta \mathcal{L}(\theta) = \mathbb{E}_{x \sim p_{\text{data}}} \left\[-\nabla_\theta E_\theta(x) \right] - \nabla_\theta \log Z(\theta)
+\nabla_\theta \mathcal{L}(\theta) = \mathbb{E}_{x \sim p_{\text{data}}} \[-\nabla_\theta E_\theta(x) ] - \nabla_\theta \log Z(\theta)
 $$
 
 
@@ -107,7 +107,7 @@ $$
 
 
 $$
-\nabla_\theta \log Z(\theta) = -\mathbb{E}_{x \sim q_\theta} \left\[\nabla_\theta E_\theta(x) \right]
+\nabla_\theta \log Z(\theta) = -\mathbb{E}_{x \sim q_\theta} \[\nabla_\theta E_\theta(x) ]
 $$
 
 
@@ -115,7 +115,7 @@ So the final MLE gradient becomes:
 
 
 $$
-\nabla_\theta \mathcal{L}(\theta) = \mathbb{E}_{x \sim p_{\text{data}}} \left\[-\nabla_\theta E_\theta(x) \right] + \mathbb{E}_{x \sim q_\theta} \left\[\nabla_\theta E_\theta(x) \right]
+\nabla_\theta \mathcal{L}(\theta) = \mathbb{E}_{x \sim p_{\text{data}}} \[-\nabla_\theta E_\theta(x) ] + \mathbb{E}_{x \sim q_\theta} \[\nabla_\theta E_\theta(x) ]
 $$
 
 
@@ -127,7 +127,7 @@ This form clearly shows two competing forces:
 
 ### Sampling from $q_\theta(x)$ is Hard
 
-The second expectation, $\mathbb{E}_{x \sim q_\theta} \left\[\cdot \right]$, requires sampling from the model distribution:
+The second expectation, $\mathbb{E}_{x \sim q_\theta} \[\cdot ]$, requires sampling from the model distribution:
 
 
 $$
@@ -157,7 +157,7 @@ After a few steps, the resulting sample $x_k$ is used as a proxy for $q_\theta$.
 
 
 $$
-\nabla_\theta \mathcal{L}(\theta) \approx \mathbb{E}_{x \sim p_{\text{data}}} \left\[-\nabla_\theta E_\theta(x) \right] + \mathbb{E}_{x' \sim q_\theta} \left\[\nabla_\theta E_\theta(x') \right]
+\nabla_\theta \mathcal{L}(\theta) \approx \mathbb{E}_{x \sim p_{\text{data}}} \[-\nabla_\theta E_\theta(x) ] + \mathbb{E}_{x' \sim q_\theta} \[\nabla_\theta E_\theta(x') ]
 $$
 
 
