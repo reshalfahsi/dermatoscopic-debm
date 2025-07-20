@@ -17,6 +17,7 @@ $$
 q_\theta(x) = \frac{e^{-E_\theta(x)}}{Z(\theta)}, \quad \text{where } Z(\theta) = \int e^{-E_\theta(x)} dx
 $$
 
+
 * The lower the energy $E_\theta(x)$, the more likely the data point $x$.
 * $Z(\theta)$ is the partition function (often intractable).
 
@@ -25,21 +26,27 @@ $$
 
 The goal of MLE is to find parameters $\theta$ that maximize the log-likelihood of the data:
 
+
 $$
 \mathcal{L}(\theta) = \mathbb{E}_{x \sim p_{\text{data}}}[\log q_\theta(x)]
 $$
 
+
 Plug in the definition of $q_\theta(x)$:
+
 
 $$
 \log q_\theta(x) = -E_\theta(x) - \log Z(\theta)
 $$
 
+
 So, the expected log-likelihood becomes:
+
 
 $$
 \mathcal{L}(\theta) = \mathbb{E}_{x \sim p_{\text{data}}}[-E_\theta(x)] - \log Z(\theta)
 $$
+
 
 Since $\log Z(\theta)$ depends on $\theta$, we need its gradient when optimizing $\mathcal{L}(\theta)$.
 
@@ -48,53 +55,69 @@ Since $\log Z(\theta)$ depends on $\theta$, we need its gradient when optimizing
 
 We differentiate the expected log-likelihood with respect to $\theta$ (i.e., the expected score function $s(x; \theta) := \nabla_\theta \log q_\theta(x)$):
 
+
 $$
 \nabla_\theta \mathcal{L}(\theta) = \mathbb{E}_{x \sim p_{\text{data}}}[\nabla_\theta \log q_\theta(x)]
 $$
 
+
 Remember the previous part:
+
 
 $$
 \nabla_\theta \mathcal{L}(\theta) = \mathbb{E}_{x \sim p_{\text{data}}}[-\nabla_\theta E_\theta(x)] - \nabla_\theta \log Z(\theta)
 $$
 
+
 The tricky part is $\nabla_\theta \log Z(\theta)$. Using calculus of variations:
 
 - Under regularity conditions (smoothness, integrability), we can **interchange** the derivative and the integral:
+
 
 $$
 \nabla_\theta \int e^{-E_\theta(x)} dx = \int \nabla_\theta e^{-E_\theta(x)} dx
 $$
 
+
 - Now, differentiate the integrand:
+
 
 $$
 \nabla_\theta e^{-E_\theta(x)} = -e^{-E_\theta(x)} \nabla_\theta E_\theta(x)
 $$
 
+
 - Therefore:
+
 
 $$
 \nabla_\theta Z(\theta) = \int -e^{-E_\theta(x)} \nabla_\theta E_\theta(x) dx
 $$
 
+
 - Plug this into the earlier equation:
+
 
 $$
 \nabla_\theta \log Z(\theta) = \frac{1}{Z(\theta)} \int -e^{-E_\theta(x)} \nabla_\theta E_\theta(x) dx
 $$
 
+
 - Recognize the integral as an expectation under the model distribution:
+
 
 $$
 \nabla_\theta \log Z(\theta) = -\mathbb{E}_{x \sim q_\theta}[\nabla_\theta E_\theta(x)]
 $$
 
+
 So the final MLE gradient becomes:
+
 
 $$
 \nabla_\theta \mathcal{L}(\theta) = \mathbb{E}_{x \sim p_{\text{data}}}[-\nabla_\theta E_\theta(x)] + \mathbb{E}_{x \sim q_\theta}[\nabla_\theta E_\theta(x)]
 $$
+
 
 This form clearly shows two competing forces:
 
@@ -106,9 +129,11 @@ This form clearly shows two competing forces:
 
 The second expectation, $\mathbb{E}_{x \sim q_\theta}[\cdot]$, requires sampling from the model distribution:
 
+
 $$
 q_\theta(x) \propto e^{-E_\theta(x)}
 $$
+
 
 But sampling from $q_\theta(x)$ is intractable in most high-dimensional settings.
 
@@ -122,15 +147,19 @@ Instead of drawing perfect samples from $q_\theta(x)$, we:
 * Start from random noise (or real data, in CD-k)
 * Run $k$ steps of Langevin dynamics. This acts like a noisy gradient descent on the energy surface:
 
+
 $$
 x_{t+1} = x_t - \alpha \nabla_x E_\theta(x_t) + \eta_t, \quad \eta_t \sim \mathcal{N}(0, \epsilon)
 $$
 
+
 After a few steps, the resulting sample $x_k$ is used as a proxy for $q_\theta$. This allows us to compute the approximate gradient:
+
 
 $$
 \nabla_\theta \mathcal{L}(\theta) \approx \mathbb{E}_{x \sim p_{\text{data}}}[-\nabla_\theta E_\theta(x)] + \mathbb{E}_{x' \sim q_\theta}[\nabla_\theta E_\theta(x')]
 $$
+
 
 Where $q_\theta$ is the **approximate distribution** from the short-run MCMC.
 
@@ -156,7 +185,7 @@ Please go to the [notebook](https://colab.research.google.com/github/reshalfahsi
 
 ### Metric Curve
 
-<p align="center"> <img src="https://github.com/reshalfahsi/dermatoscopic-debm/blob/main/assets/metrics_plot.png" alt="metrics_plot" > <br /> Metrics curves shows the expected of real and fake samples during training. </p>
+<p align="center"> <img src="https://github.com/reshalfahsi/dermatoscopic-debm/blob/main/assets/metrics_plot.png" alt="metrics_plot" > <br /> Metrics curves shows the expected energy of real and fake samples during training. </p>
 
 
 ### Qualitative Result
