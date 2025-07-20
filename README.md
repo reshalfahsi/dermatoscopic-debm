@@ -181,7 +181,7 @@ Please go to the [notebook](https://colab.research.google.com/github/reshalfahsi
 
 ### Loss Curve
 
-<p align="center"> <img src="https://github.com/reshalfahsi/dermatoscopic-debm/blob/main/assets/loss_plot.png" alt="loss_plot" > <br /> Loss curves of the Deep Energy-Based Model. Fortunately, the losses do not diverge since the model is prone to such a phenomenon. Once the occurrence hits, we can only pray to God, fine-tune the last best weight before divergence, and hope for the best. </p>
+<p align="center"> <img src="https://github.com/reshalfahsi/dermatoscopic-debm/blob/main/assets/loss_plot.png" alt="loss_plot" > <br /> Loss curves of the Deep Energy-Based Model. Fortunately, the losses don't diverge. We must be aware that the model is susceptible to such a phenomenon. Once the event occurs, all we can do is pray to God, fine-tune the last best weight before divergence, and hope for the best. </p>
 
 ### Metric Curve
 
