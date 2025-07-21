@@ -73,7 +73,7 @@ The tricky part is $\nabla\_\theta \log Z(\theta)$. Using calculus of variations
 
 
 $$
-\nabla\_\theta \log Z(\theta) = \frac{1}{Z(\theta)} \nabla\_\theta \log Z(\theta)
+\nabla\_\theta \log Z(\theta) = \frac{1}{Z(\theta)} \nabla\_\theta Z(\theta)
 $$
 
 
